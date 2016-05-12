@@ -1,0 +1,16 @@
+.pagination {
+  text-align: right;
+  width: 100%;
+  li {
+    display: inline-block;
+    float:  none;
+    a{
+
+    }
+    &.active{
+      a{
+
+      }
+    }
+  }
+}

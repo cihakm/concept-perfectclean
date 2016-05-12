@@ -1,0 +1,20 @@
+@import "../core/variables";
+
+/* placeholders default color */
+::-webkit-input-placeholder {
+  color: $placeholderColor;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: $placeholderColor;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: $placeholderColor;
+}
+
+:-ms-input-placeholder {
+  color: $placeholderColor;
+}

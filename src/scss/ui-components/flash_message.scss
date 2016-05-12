@@ -1,0 +1,69 @@
+.alert {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999999;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  padding: 30px;
+  padding-top: 100px;
+  color: #ffffff;
+  width: 270px;
+  text-align: center;
+  &:before {
+    position: absolute;
+    left: 50%;
+    top: 35px;
+    font-size: 40px;
+    margin-left: -20px;
+    font-family: 'iconfont' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+  }
+
+  &.alert-success {
+    background-color: $alertSuccesBg;
+    &:before {
+      content: "\6d";
+    }
+  }
+  &.alert-error, &.alert-danger {
+    background-color: $alertDangerBg;
+    &:before {
+      content: "\75";
+    }
+  }
+  &.alert-info {
+    background-color: $alertInfoBg;
+    &:before {
+      content: "\74";
+    }
+  }
+
+  a {
+    display: block;
+    width: 20px;
+    height: 20px;
+    color: transparent;
+    &:before {
+      color: $whiteColor;
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      content: "\f0e2";
+      font-size: 22px;
+    }
+  }
+}

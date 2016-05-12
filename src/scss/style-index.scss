@@ -1,0 +1,65 @@
+//External libs
+@import "lib/bootstrap";
+
+//Font Awesome for icons
+@import "font_awesome/font-awesome";
+
+//Core variables and css
+@import "core/core";
+@import "core/variables";
+
+
+
+html, body {
+  background-color: $backgroundColor;
+  font-family: "Open Sans", sans-serif;
+}
+
+figure {
+  text-align: center;
+  margin: 20px 0;
+  max-width: 420px;
+  a {
+    border: 3px solid #f2f2f2;
+    display: block;
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.1);
+    &:hover {
+      border: 3px solid #e0e0e0;
+    }
+    img {
+      max-width: 420px;
+      width: 100%;
+      height: auto;
+
+    }
+  }
+  @media screen and (max-width: $screen-md) {
+    margin: 20px auto;
+  }
+
+}
+
+figcaption {
+  margin-top: 10px;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.main {
+  text-align: center;
+  h1 {
+    text-shadow: 0px 0px 2px rgba(150, 150, 150, 0.70);
+  }
+  figure {
+    margin: 30px auto;
+    max-width: 420px;
+    a {
+      max-width: 100%;
+      display: block;
+      img {
+        max-width: 100%;
+      }
+    }
+
+  }
+}
