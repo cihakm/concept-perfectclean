@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     "use strict";
 
     // Task time check
@@ -24,12 +24,12 @@ module.exports = function(grunt) {
                         src: ['bootstrap.js'],
                         dest: 'src/js/lib/'
 
-                    },   {
+                    }, {
                         expand: true,
                         cwd: 'node_modules/bootstrap-sass/assets/stylesheets/',
                         src: ['_bootstrap.scss'],
                         dest: 'src/scss/lib/',
-                        rename: function(dest, src) {
+                        rename: function (dest, src) {
                             return dest + src.replace(/\.css$/, ".scss");
                         }
                     }
@@ -40,8 +40,8 @@ module.exports = function(grunt) {
         // SASS to CSS
         sass: {
             dist: {
-                options:{
-                    loadPath: 'node_modules/bootstrap-sass/assets/stylesheets/'
+                options: {
+                    loadPath: ['node_modules/bootstrap-sass/assets/stylesheets/', 'node_modules/sass-rem/']
                 },
                 files: {
                     'www/templates/dist/css/style.css': 'src/scss/style.scss',
@@ -54,14 +54,17 @@ module.exports = function(grunt) {
         // PostCSS
         postcss: {
             options: {
+                map: true,
                 processors: [
-                    require('pixrem')({rootValue: 16}), // rem -> px fallback
                     require('autoprefixer')({browsers: ['last 3 versions', 'ios 6', 'ie 7', 'ie 8', 'ie 9']}), // adds prefixes
-                    require('postcss-em-media-query')({ }) // media queries px -> em
+                    require('postcss-em-media-query')({}) // media queries px -> em
                 ]
             },
             dist: {
-                src: 'www/templates/dist/css/style.css' // source CSS for postCSS
+                files: {
+                    'www/templates/dist/css/style.css': 'www/templates/dist/css/style.css' // source CSS for postCSS
+
+                }
             }
         },
 
@@ -77,16 +80,15 @@ module.exports = function(grunt) {
 
 
         // All js to one
-        browserify : {
-            main : {
-                files : { 'www/templates/dist/js/script.js' : ['src/js/script.js', "src/js/lib/bootstrap.js"] }
-            },
+        concat: {
             options: {
-                transform: ['debowerify'],
-                debug: true
+                separator: "\n\n"
+            },
+            scripts: {
+                src: ['src/js/lib/jquery.js', 'src/js/lib/bootstrap.js', 'src/js/script.js'],
+                dest: 'www/templates/dist/js/script.js'
             }
         },
-
         // JS minification
         uglify: {
             script: {
@@ -99,14 +101,14 @@ module.exports = function(grunt) {
         browserSync: {
             dev: {
                 bsFiles: {
-                    src : [
-                        'www/templates/dist/css/*.css'
-                    ]
+                    src: ['www/templates/dist/css/*.css', 'www/tempaltes/dist/js/*.js', 'www/templates/*.html'],
                 },
                 options: {
                     watchTask: true,
-                    proxy: 'http://skeleton.dev/templates'
+                    proxy: 'http://skeleton.dev/templates' //Have to be changed by each project name
                 }
+
+
             }
         },
 
@@ -120,7 +122,7 @@ module.exports = function(grunt) {
                 files: 'src/js/**/*.js',
                 tasks: ['js']
             }
-        },
+        }
 
     });
 
@@ -129,7 +131,7 @@ module.exports = function(grunt) {
     // ==============
 
     grunt.registerTask('css', ['sass', 'postcss', 'cssmin']);
-    grunt.registerTask('js', ['browserify', 'uglify']);
+    grunt.registerTask('js', ['concat', 'uglify']);
     grunt.registerTask('default', ['copy', 'css', 'js', 'browserSync', 'watch']);
 
 };
