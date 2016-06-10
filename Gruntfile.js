@@ -15,6 +15,18 @@ module.exports = function (grunt) {
 
         // Copying files (usualy jquery plugins)
         copy: {
+            //Copy jquery
+            jquery: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'node_modules/jquery/dist/',
+                        src: ['jquery.js'],
+                        dest: 'src/js/lib/'
+
+                    }
+                ]
+            },
             //Copy bootstrap
             bootstrap: {
                 files: [
@@ -56,7 +68,7 @@ module.exports = function (grunt) {
             options: {
                 map: true,
                 processors: [
-                    require('autoprefixer')({browsers: ['last 3 versions', 'ios 6', 'ie 7', 'ie 8', 'ie 9']}), // adds prefixes
+                    require('autoprefixer')({browsers: ['last 3 versions', 'ios 6', 'ie 9']}), // adds prefixes
                     require('postcss-em-media-query')({}) // media queries px -> em
                 ]
             },
@@ -101,7 +113,7 @@ module.exports = function (grunt) {
         browserSync: {
             dev: {
                 bsFiles: {
-                    src: ['www/templates/dist/css/*.css', 'www/tempaltes/dist/js/*.js', 'www/templates/*.html'],
+                    src: ['www/templates/dist/css/*.css', 'www/templates/dist/js/*.js'],
                 },
                 options: {
                     watchTask: true,
@@ -122,7 +134,23 @@ module.exports = function (grunt) {
                 files: 'src/js/**/*.js',
                 tasks: ['js']
             }
+        },
+
+        // Critical CSS
+        criticalcss: {
+            custom: {
+                options: {
+                    url: "http://localhost:3000/templates",
+                    outputfile: "www/templates/dist/css/critical.min.css",
+                    filename: "www/templates/dist/css/style.min.css",
+                    width: 1200,
+                    height: 900
+
+                }
+            }
         }
+
+
 
     });
 
