@@ -4,17 +4,20 @@
 //Font Awesome for icons
 @import "font_awesome/font-awesome";
 
+//Animations
+@import "animations/bounce";
+@import "animations/shake";
+@import "animations/rotate";
+
 //Core variables and css
-@import "core/core";
 @import "core/variables";
+@import "core/core";
+@import "core/hamburgers/hamburgers/hamburgers";
+@import "core/iconfont";
 
 //UIcomponents
 @import "ui-components/button";
 @import "ui-components/carousel";
-@import "ui-components/checkbox";
-@import "ui-components/radio";
-@import "ui-components/text_input";
-@import "ui-components/textarea";
 @import "ui-components/dropdown";
 @import "ui-components/flash_message";
 @import "ui-components/modal";
@@ -23,7 +26,10 @@
 
 //form
 @import "form/placeholder";
-
+@import "form/checkbox";
+@import "form/radio";
+@import "form/text_input";
+@import "form/textarea";
 //layout
 @import "layout/header";
 @import "layout/aside";
