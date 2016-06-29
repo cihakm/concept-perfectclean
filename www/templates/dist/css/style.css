@@ -8015,6 +8015,9 @@ html, body {
     html, body {
       height: auto; } }
 
+a:focus, .btn:focus {
+  outline: none !important; }
+
 /*!
  * Hamburgers
  * @description Tasty CSS-animated hamburgers
@@ -9169,7 +9172,6 @@ footer, .push {
       height: auto; } }
 
 img {
-  max-width: 100%;
   width: auto; }
 
 /*# sourceMappingURL=style.css.map */
