@@ -7,7 +7,6 @@ module.exports = function (grunt) {
     // Faster loading of grunt and faster runnig tasks
     require('jit-grunt')(grunt);
 
-
     // Task settings
     grunt.initConfig({
 
@@ -97,15 +96,19 @@ module.exports = function (grunt) {
                 separator: "\n\n"
             },
             scripts: {
-                src: ['src/js/lib/jquery.js', 'src/js/lib/bootstrap.js', 'src/js/script.js'],
+                src: [
+                    'src/js/lib/jquery.js',
+                    'src/js/lib/bootstrap.js',
+                    'src/js/script.js'
+                ],
                 dest: 'www/templates/dist/js/script.js'
             }
         },
         // JS minification
         uglify: {
             script: {
-                src: 'www/templates/dist/js/script.js',
-                dest: 'www/templates/dist/js/script.min.js'
+                src: 'www/templates/dist/js/scripts.js',
+                dest: 'www/templates/dist/js/scripts.min.js'
             }
         },
 
@@ -113,7 +116,10 @@ module.exports = function (grunt) {
         browserSync: {
             dev: {
                 bsFiles: {
-                    src: ['www/templates/dist/css/*.css', 'www/templates/dist/js/*.js'],
+                    src: [
+                        'www/templates/dist/css/*.css',
+                        'www/templates/dist/js/*.js'
+                    ],
                 },
                 options: {
                     watchTask: true,
@@ -160,6 +166,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('css', ['sass', 'postcss', 'cssmin']);
     grunt.registerTask('js', ['concat', 'uglify']);
-    grunt.registerTask('default', ['copy', 'css', 'js', 'browserSync', 'watch']);
+    grunt.registerTask('duplicate', ['copy']);
+    grunt.registerTask('default', ['css', 'js', 'browserSync', 'watch']);
 
 };
