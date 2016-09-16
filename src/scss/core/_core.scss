@@ -1,0 +1,24 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext);
+@import "rem";
+@import "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: $backgroundColor;
+  @include rem-baseline;
+  height: 100%;
+  @include media-breakpoint-down(sm) {
+    height: auto;
+  }
+}
+
+a,.btn{
+  &:focus{
+    outline: none !important;
+  }
+}

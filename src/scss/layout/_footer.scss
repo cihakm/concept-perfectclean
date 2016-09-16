@@ -1,0 +1,18 @@
+// sticky footer
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -$pushHeight;
+
+  @include media-breakpoint-down(sm) {
+    margin: 0 auto 0;
+  }
+}
+
+footer, .push {
+  height: $pushHeight;
+  @include media-breakpoint-down(sm) {
+    height: auto;
+  }
+}

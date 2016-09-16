@@ -1,0 +1,13 @@
+.btn {
+  transition: all .3s ease;
+  text-decoration: none;
+  font-size: $btnFontSize;
+  padding: calc(0.89 * #{$btnFontSize}) calc(2.225 * #{$btnFontSize}) !important;
+  @include media-breakpoint-down(lg) {
+    padding: calc(0.7 * #{$btnFontSize}) calc(2 * #{$btnFontSize}) !important;
+  }
+
+  &:hover, &:focus {
+    outline: none !important;
+  }
+}

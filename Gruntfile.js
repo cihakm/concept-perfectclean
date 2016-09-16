@@ -31,14 +31,14 @@ module.exports = function (grunt) {
                 files: [
                     {
                         expand: true,
-                        cwd: 'node_modules/bootstrap-sass/assets/javascripts/',
-                        src: ['bootstrap.js'],
-                        dest: 'src/js/lib/'
+                        cwd: 'node_modules/bootstrap/js/dist/',
+                        src: ['*.js'],
+                        dest: 'src/js/lib/bootstrap/'
 
                     }, {
                         expand: true,
-                        cwd: 'node_modules/bootstrap-sass/assets/stylesheets/',
-                        src: ['_bootstrap.scss'],
+                        cwd: 'node_modules/bootstrap/scss/',
+                        src: ['bootstrap.scss'],
                         dest: 'src/scss/lib/',
                         rename: function (dest, src) {
                             return dest + src.replace(/\.css$/, ".scss");
@@ -52,11 +52,11 @@ module.exports = function (grunt) {
         sass: {
             dist: {
                 options: {
-                    loadPath: ['node_modules/bootstrap-sass/assets/stylesheets/', 'node_modules/sass-rem/']
+                    loadPath: ['node_modules/bootstrap/scss/', 'node_modules/sass-rem/']
                 },
                 files: {
-                    'www/templates/dist/css/style.css': 'src/scss/style.scss',
-                    'www/templates/dist/css/style-index.css': 'src/scss/style-index.scss'
+                    'www/dist/css/style.css': 'src/scss/style.scss',
+                    'www/dist/css/style-index.css': 'src/scss/style-index.scss'
                 }
             }
 
@@ -73,7 +73,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'www/templates/dist/css/style.css': 'www/templates/dist/css/style.css' // source CSS for postCSS
+                    'www/dist/css/style.css': 'www/dist/css/style.css' // source CSS for postCSS
 
                 }
             }
@@ -84,13 +84,23 @@ module.exports = function (grunt) {
         cssmin: {
             default: {
                 files: {
-                    'www/templates/dist/css/style.min.css': 'www/templates/dist/css/style.css'
+                    'www/dist/css/style.min.css': 'www/dist/css/style.css'
                 }
             }
         },
 
 
         // All js to one
+        browserify : {
+            main : {
+                files : { 'www/dist/js/scripts.js' : ['src/js/scripts.js'] }
+            },
+            options: {
+                transform: ['debowerify'],
+                debug: true
+            }
+        },
+        /*
         concat: {
             options: {
                 separator: "\n\n"
@@ -99,16 +109,16 @@ module.exports = function (grunt) {
                 src: [
                     'src/js/lib/jquery.js',
                     'src/js/lib/bootstrap.js',
-                    'src/js/script.js'
+                    'src/js/scripts.js'
                 ],
-                dest: 'www/templates/dist/js/script.js'
+                dest: 'www/templates/dist/js/scripts.js'
             }
-        },
+        },*/
         // JS minification
         uglify: {
             script: {
-                src: 'www/templates/dist/js/scripts.js',
-                dest: 'www/templates/dist/js/scripts.min.js'
+                src: 'www/dist/js/scripts.js',
+                dest: 'www/dist/js/scripts.min.js'
             }
         },
 
@@ -117,13 +127,13 @@ module.exports = function (grunt) {
             dev: {
                 bsFiles: {
                     src: [
-                        'www/templates/dist/css/*.css',
-                        'www/templates/dist/js/*.js'
+                        'www/dist/css/*.css',
+                        'www/dist/js/*.js'
                     ],
                 },
                 options: {
                     watchTask: true,
-                    proxy: 'http://skeleton.dev/templates' //Have to be changed by each project name
+                    proxy: 'http://skeleton.dev' //Have to be changed by each project name
                 }
 
 
@@ -147,8 +157,8 @@ module.exports = function (grunt) {
             custom: {
                 options: {
                     url: "http://localhost:3000/templates",
-                    outputfile: "www/templates/dist/css/critical.min.css",
-                    filename: "www/templates/dist/css/style.min.css",
+                    outputfile: "www/dist/css/critical.min.css",
+                    filename: "www/dist/css/style.min.css",
                     width: 1200,
                     height: 900
 
@@ -165,7 +175,7 @@ module.exports = function (grunt) {
     // ==============
 
     grunt.registerTask('css', ['sass', 'postcss', 'cssmin']);
-    grunt.registerTask('js', ['concat', 'uglify']);
+    grunt.registerTask('js', ['browserify', 'uglify']);
     grunt.registerTask('duplicate', ['copy']);
     grunt.registerTask('default', ['css', 'js', 'browserSync', 'watch']);
 
