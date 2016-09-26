@@ -31,7 +31,7 @@ module.exports = function (grunt) {
                 files: [
                     {
                         expand: true,
-                        cwd: 'node_modules/bootstrap/js/dist/',
+                        cwd: 'node_modules/bootstrap/js/src/',
                         src: ['*.js'],
                         dest: 'src/js/lib/bootstrap/'
 
@@ -92,12 +92,13 @@ module.exports = function (grunt) {
 
         // All js to one
         browserify : {
-            main : {
-                files : { 'www/dist/js/scripts.js' : ['src/js/scripts.js'] }
-            },
-            options: {
-                transform: ['debowerify'],
-                debug: true
+            dist: {
+                options: {
+                    transform: [['babelify', {presets: ['es2015']}]],
+                    debug: true
+                },
+                src: ['src/js/scripts.js'],
+                dest: 'www/dist/js/scripts.js'
             }
         },
         /*
@@ -133,7 +134,7 @@ module.exports = function (grunt) {
                 },
                 options: {
                     watchTask: true,
-                    proxy: 'http://skeleton.dev' //Have to be changed by each project name
+                    proxy: 'http://skeleton-b4.dev' //Have to be changed by each project name
                 }
 
 
