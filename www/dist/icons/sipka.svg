@@ -1,1 +1,7 @@
-<svg id="Vrstva_1" data-name="Vrstva 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 12"><defs><style>.cls-1{fill:#00abc8;}</style></defs><title>Kreslicí plátno 1</title><polygon class="cls-1" points="15.94 0 14.76 1.17 18.82 5.17 0 5.17 0 6.81 18.82 6.81 14.76 10.81 15.94 12 22 5.99 15.94 0"/></svg>
+<svg id="Vrstva_1" data-name="Vrstva 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 12">
+    <defs>
+        <style>.cls-1{fill:#00abc7;}</style>
+    </defs>
+    <title>Kreslicí plátno 1</title>
+    <polygon class="cls-1" points="15.94 0 14.76 1.17 18.82 5.17 0 5.17 0 6.81 18.82 6.81 14.76 10.81 15.94 12 22 5.99 15.94 0"/>
+</svg>

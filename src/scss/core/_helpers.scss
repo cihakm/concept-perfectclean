@@ -1,0 +1,37 @@
+.grey-bg-gradient-vertical {
+  @include gradient_vertical(#f1f1f1, #c3c7ca);
+}
+
+.bg-red {
+  background-color: $redColor;
+}
+
+.bg-turquoise {
+  background-color: $turquoiseColor;
+}
+.bg-grey{
+  background-color: $greyDarkerColor;
+}
+
+.mb-15 {
+  margin-bottom: 15px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+.mb-40 {
+  margin-bottom: 40px;
+}
+.mb-50 {
+  margin-bottom: 50px;
+}
+.t-0 {
+  top: 0 !important;
+}
+
+@include media-breakpoint-down(xs) {
+  .d-xs-none {
+    display: none !important;
+  }
+}

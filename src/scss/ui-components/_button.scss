@@ -2,12 +2,87 @@
   transition: all .3s ease;
   text-decoration: none;
   font-size: $btnFontSize;
-  padding: calc(0.89 * #{$btnFontSize}) calc(2.225 * #{$btnFontSize}) !important;
+  height: 50px;
+  padding: calc(0.8 * #{$btnFontSize}) calc(2 * #{$btnFontSize}) calc(0.6 * #{$btnFontSize}) !important;
   @include media-breakpoint-down(lg) {
-    padding: calc(0.7 * #{$btnFontSize}) calc(2 * #{$btnFontSize}) !important;
+    padding: calc(0.7 * #{$btnFontSize}) calc(2 * #{$btnFontSize}) calc(0.6 * #{$btnFontSize}) !important;
   }
 
   &:hover, &:focus {
     outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  &.btn-turquoise {
+    background-color: $turquoiseColor;
+    color: $whiteColor;
+    border-radius: 0;
+    box-shadow: 1px 1px 0 0 $turquoiseDarkColor;
+    @include rem(font-size, 16px);
+    border: 1px solid $turquoiseColor;
+    span {
+      margin-left: 10px;
+    }
+    &:hover {
+      background-color: $turquoiseDarkColor;
+      border: 1px solid $turquoiseDarkColor;
+
+    }
+  }
+  &.btn-transparent {
+    background-color: transparent;
+    color: $turquoiseColor;
+    border-radius: 0;
+    @include rem(font-size, 16px);
+    border: 1px solid $turquoiseColor;
+    span {
+      margin-right: 10px;
+      color: $whiteColor;
+      width: 28px;
+      height: 28px;
+      background-color: $turquoiseColor;
+      border-radius: 100%;
+      text-align: center;
+      position: relative;
+      top: -10px;
+      @include rem(font-size, 12px);
+      &:before {
+        position: relative;
+        left: 2px;
+        top: 8px;
+      }
+    }
+    &:hover {
+      background-color: $turquoiseColor;
+      color: $whiteColor;
+      span{
+        background-color: $whiteColor;
+        color: $turquoiseColor;
+      }
+    }
+    &.no-border{
+      border-color: $whiteColor;
+      span{
+        background-color: transparent ;
+        border-radius: 0 ;
+        margin-left: 5px;
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        top: 0;
+        font-size: inherit;
+        img{
+          width: 100%;
+        }
+      }
+      &:hover{
+        background-color: transparent ;
+        border-color: $whiteColor ;
+        color: $turquoiseColor ;
+      }
+    }
+  }
+  &.no-shadow {
+    box-shadow: none !important;
   }
 }

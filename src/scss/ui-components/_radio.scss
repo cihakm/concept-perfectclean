@@ -1,0 +1,53 @@
+.radio {
+  + .radio {
+    margin-left: 50px;
+  }
+  label {
+    width: auto !important;
+    font-family: MontserratRegular !important;
+    top: auto !important;
+  }
+  .wrap {
+    display: block;
+    position: relative;
+    padding-left: 40px;
+    cursor: pointer;
+    @include rem(font-size, 16px);
+    user-select: none;
+
+  }
+
+  /* Hide the browser's default checkbox */
+  .wrap input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    display: none
+  }
+
+  /* Create a custom checkbox */
+  .radiomark {
+    position: absolute;
+    top: -3px;
+    left: 0;
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    background-color: $whiteColor;
+    border: 1px solid $border-color;
+    box-shadow: inset 2px 2px 5px 0px rgba(94, 105, 110, 0.1);
+  }
+
+  /* When the checkbox is checked, add a blue background */
+  .wrap input:checked ~ .radiomark:before {
+    content: "";
+    position: absolute;
+    background-color: $turquoiseColor;
+    width: 18px;
+    height: 18px;
+    left: 5px;
+    top: 5px;
+    border-radius: 100%;
+    display: block;
+  }
+}

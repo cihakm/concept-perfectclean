@@ -1,0 +1,38 @@
+.navbar {
+  padding: 15px 10px;
+  z-index: 99999999;
+  background-color: $whiteColor;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.08);
+}
+
+.nav-pills {
+  .nav-item {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    &:before {
+      display: none
+    }
+    .nav-link {
+      color: $greyColor;
+      &:hover {
+        color: $greyDarkColor;
+      }
+      &.active {
+        background-color: transparent;
+        color: $turquoiseColor;
+      }
+    }
+  }
+}
+
+.navbar-collapse {
+  flex-basis: initial;
+  flex-grow: initial;
+}
+
+.navbar-brand {
+  padding: 0;
+  position: relative;
+  top: -5px;
+}

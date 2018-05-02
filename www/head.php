@@ -3,7 +3,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="robots" content="noindex,nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Skeleton HTML</title>
+    <title>Perfect Clean | Concept</title>
 
     <!-- CSS -->
     <link href="dist/css/style.css" rel="stylesheet">

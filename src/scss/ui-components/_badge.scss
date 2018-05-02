@@ -1,0 +1,52 @@
+.badge{
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 8px 20px;
+  color: $whiteColor;
+  border-radius: 0;
+  p{
+    margin: 0;
+    @include rem(font-size, 16px)
+  }
+  &.bg-grey{
+    background-color: $greyColor;
+  }
+  &.bg-darkGrey{
+    background-color: $greyDarkColor;
+  }
+  &.bg-turquoise{
+    background-color: $turquoiseColor;
+  }
+}
+
+.badges{
+  position: absolute;
+  right: 0;
+  top: 40px;
+  color: $whiteColor;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  .badge{
+    padding: 0;
+    .img-wrapper{
+      width: 100px;
+      position: inherit;
+      img{
+
+      }
+    }
+    p{
+      @include rem(font-size, 13px);
+    }
+    top: initial;
+    right: initial;
+    position: initial;
+  }
+  &.bages--side{
+    //position: fixed;
+    top: 22vh;
+    z-index: 999999;
+  }
+}

@@ -1,2 +1,24 @@
 @include media-breakpoint-down(lg) {
+  .top_section {
+    .container {
+      .text-wrapper {
+        .title{
+          @include rem(font-size, 60px);
+          +p{
+            @include rem(font-size, 30px);
+
+          }
+        }
+      }
+    }
+  }
+  .carpet{
+    background-position: calc(50% + 250px) top;
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .top_section{
+    height: 70vh
+  }
 }

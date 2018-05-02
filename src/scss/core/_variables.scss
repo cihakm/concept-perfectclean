@@ -1,12 +1,14 @@
 //========  GLOBAL VARIABLES ======== //
 $rem-baseline:              16px;
+$defaultFontType: 			MontserratRegular;
 $btnFontSize:               18px;
 $backgroundColor: 			#ffffff;
 $footerBackgroundColor:		#000000;
-$defaultTextColor: 			#000000;
+$defaultTextColor: 			#485256;
 $placeholderColor: 			#434343;
-$pushHeight: 				388px;
-
+$borderColor: 			    #ced2d3;
+$pushHeight: 				269px;
+$fa-font-path:              "../fonts/font_awesome";
 
 //========  COLORS ======== //
 $blackColor: 				#000000;
@@ -15,4 +17,14 @@ $alertSuccesBg: 			#27ae62;
 $alertDangerBg: 			#e84c3d;
 $alertInfoBg: 			    #3598dc;
 
-$greyColor: 				#868383;
+$primaryColor:              #00abc7;
+
+$greyColor: 				#9d9d9c;
+$greyLightColor: 		    #f1f1f1;
+$greyDarkColor: 		    #54565a;
+$greyDarkerColor: 		    #485256;
+$blueColor: 				#004f9f;
+$blueDarkColor: #004487;
+$redColor: 				    #e4012e;
+$turquoiseColor: 	        #00abc7;
+$turquoiseDarkColor: 	    #006070;

@@ -1,0 +1,61 @@
+.collapse, .collapsing {
+  section {
+    position: relative;
+    h3{
+      text-transform: uppercase;
+    }
+    &:last-child {
+      border-bottom: 1px solid $borderColor;
+
+    }
+    .btn {
+      height: 40px !important;
+      padding: 8px 18px !important;
+
+    }
+    p {
+      &.price {
+        font-family: MontserratSemiBold;
+        margin-bottom: 0;
+      }
+    }
+    .actions {
+      margin-top: 60px;
+      a {
+        &.btn {
+          &.no-border {
+            margin-left: 0 !important;
+          }
+        }
+        + a {
+          margin-left: 15px;
+        }
+      }
+    }
+    + section {
+      border-top: 1px solid $borderColor;
+    }
+  }
+  .img-wrapper {
+    position: absolute;
+    right: 15px;
+    bottom: 0
+  }
+  ul {
+    li {
+      + li {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.grey-bg-gradient-vertical {
+  ul {
+    li {
+      + li {
+        margin-top: 0;
+      }
+    }
+  }
+}

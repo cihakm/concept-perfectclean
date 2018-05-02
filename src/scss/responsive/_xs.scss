@@ -1,2 +1,86 @@
 @include media-breakpoint-down(xs) {
+
+  .top_section {
+    height: 300px;
+    .container {
+      .text-wrapper {
+        padding-top: 60px;
+        .title {
+          @include rem(font-size, 40px);
+          margin-bottom: 20px;
+          + p {
+            @include rem(font-size, 20px);
+            top: -15px;
+            line-height: 1.5em;
+          }
+        }
+      }
+    }
+    video {
+      display: none;
+    }
+    .img_wrapper {
+      display: block;
+      width: inherit;
+      height: 100%;
+      img {
+        height: 100%;
+        max-width: inherit;
+      }
+    }
+  }
+  .calculate {
+    form {
+      .row {
+        .form-group{
+          flex-direction: column;
+          label{
+            top: 0;
+            width: 100%
+          }
+          .radio-group{
+            margin-top: 20px;
+            width: 100%;
+            justify-content: flex-start;
+          }
+          .inputs{
+            width: 100%;
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+  }
+  .badges {
+    .badge {
+      .img-wrapper{
+        width: 60px
+      }
+    }
+  }
+  .collapse, .collapsing{
+    section{
+      .row{
+        .col-6{
+          .img-wrapper{
+            max-width: 70%;
+            margin: 0 auto 30px;
+          }
+          ul{
+            column-count: 1;
+            li{
+
+            }
+          }
+          .actions{
+            .btn{
+              +.btn{
+                margin-top: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

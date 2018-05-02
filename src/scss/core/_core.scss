@@ -1,4 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext);
 @import "rem";
 @import "variables";
 
@@ -8,17 +7,28 @@
 }
 
 html, body {
-  font-family: 'Open Sans', sans-serif;
-  background-color: $backgroundColor;
-  @include rem-baseline;
   height: 100%;
+  @include rem-baseline;
+  font-family: $defaultFontType;
+  background-color: $backgroundColor;
+  color: $defaultTextColor;
+  position: relative;
   @include media-breakpoint-down(sm) {
     height: auto;
   }
 }
 
-a,.btn{
-  &:focus{
+body{
+  padding-top: 70px;
+}
+
+
+.modal-backdrop{
+  display: none !important;
+}
+
+a, .btn {
+  &:focus {
     outline: none !important;
   }
 }

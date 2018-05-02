@@ -1,2 +1,232 @@
 @include media-breakpoint-down(md) {
+  .navbar {
+    .container {
+      width: 100%;
+      max-width: 100%;
+      display: block;
+      .navbar-brand {
+        top: 0;
+      }
+      .hamburger {
+        padding: 8px 10px 1px;
+        float: right;
+        &:focus {
+          outline: none !important;
+        }
+        .hamburger-inner {
+          background-color: $turquoiseColor;
+          &:before, &:after {
+            background-color: $turquoiseColor;
+          }
+        }
+      }
+      .navbar-collapse {
+        position: fixed;
+        width: 100%;
+        background-color: $whiteColor;
+        border-top: 1px solid $borderColor;
+        left: 0;
+        top: 70px;
+        z-index: 99999;
+        .navbar-nav {
+          .nav-link {
+            display: block;
+            text-align: center;
+          }
+          .nav-item {
+            + .nav-item {
+              border-top: 1px solid $borderColor;
+            }
+          }
+        }
+      }
+    }
+  }
+  .top_section {
+    .container {
+      max-width: 100%;
+      padding: 0 10px;
+      .logo_wrapper{
+        left: 10px;
+        top: 0;
+      }
+      .text-wrapper {
+        .title {
+          @include rem(font-size, 50px);
+          + p {
+            @include rem(font-size, 24px);
+            top: -15px;
+          }
+        }
+      }
+    }
+  }
+  .collapse, .collapsing{
+    section {
+      .row{
+        align-items: center;
+      }
+      p {
+        &.price {
+          margin-top: 10px;
+        }
+      }
+      .actions {
+        margin-top: 10px;
+        .btn {
+          + .btn {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .flat_situation {
+    .flat-detail {
+      .flat-detail-modal {
+        padding-bottom: 10px;
+        ul {
+          li {
+            a {
+              img {
+                max-width: 80px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .calc {
+    h2 {
+      margin-bottom: 40px;
+    }
+  }
+
+  .calculate {
+    form {
+      .row {
+        margin: 0;
+        .col-lg-6 {
+          + .col-lg-6 {
+            border-left: none;
+            .form-group {
+              &:last-child {
+                border-bottom: none;
+              }
+            }
+          }
+        }
+        .form-group {
+          &:last-child {
+            border-bottom: 1px solid $borderColor;
+          }
+        }
+      }
+      .finish {
+        margin-bottom: 0;
+        padding-left: 0;
+        &.flex-row {
+          flex-direction: column !important;
+          .btn {
+            margin: 0;
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+  .steam {
+    background-position: calc(50% + 150px) bottom;
+  }
+  .carpet {
+    background-size: 70%;
+    background-position: calc(50% + 212px) 60%;
+  }
+  .speed {
+    background-position: calc(50% + 180px) top;
+  }
+  .push {
+    display: none;
+  }
+  .wrapper {
+    margin-bottom: 0;
+  }
+  footer {
+    padding: 0;
+    height: auto;
+    .container {
+      min-width: 100%;
+      width: 100%;
+      .col-3 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 0;
+        p {
+          margin: 0;
+          text-align: center;
+          line-height: inherit;
+          a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: initial;
+            &:focus {
+              outline: none !important;
+              box-shadow: none !important;
+            }
+          }
+        }
+        .collapse {
+          display: none;
+          &.show {
+            display: block;
+          }
+        }
+        .collapse, .collapsing {
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          background-color: $blueDarkColor;
+
+        }
+        ul {
+          li {
+            margin: 0;
+            a {
+              display: block;
+              text-align: center;
+              padding: 10px 0 8px;
+              &:hover {
+                background-color: rgba(255, 255, 255, 0.05);
+                text-decoration: none;
+              }
+              + span {
+                display: none;
+              }
+            }
+            + li {
+              border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+            }
+          }
+          &.socials {
+            text-align: center;
+            padding: 5px 0;
+            li {
+              border: none;
+              a {
+                background-color: transparent !important;
+                padding: 0;
+              }
+            }
+          }
+        }
+        + .col-3 {
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+        }
+      }
+    }
+  }
+
 }

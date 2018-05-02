@@ -2,16 +2,30 @@
 @import 'lib/libs';
 
 //Font Awesome for icons
-@import 'font_awesome/font-awesome';
+@import 'font_awesome/fontawesome';
+@import 'font_awesome/fa-regular';
+@import 'font_awesome/fa-solid';
+@import 'font_awesome/fa-brands';
+
+//mixins
+@import 'mixins/gradient';
+
 
 //Core variables and css
 @import 'core/variables';
 @import 'core/core';
 @import 'core/hamburgers/hamburgers/hamburgers';
 @import 'core/iconfont';
+@import 'core/helpers';
+
+//Text
+@import 'text/fonts';
+@import 'text/text';
 
 //UIcomponents
 @import 'ui-components/components';
+@import 'ui-components/navbar';
+@import 'ui-components/list';
 
 //layout
 @import 'layout/layout';

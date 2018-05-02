@@ -31,7 +31,7 @@ module.exports = function (grunt) {
                 files: [
                     {
                         expand: true,
-                        cwd: 'node_modules/bootstrap/js/src/',
+                        cwd: 'node_modules/bootstrap/dist/js',
                         src: ['*.js'],
                         dest: 'src/js/lib/bootstrap/'
 
@@ -45,6 +45,38 @@ module.exports = function (grunt) {
                         }
                     }
                 ]
+            },
+            //Copy bootstrap select
+            bootstrapSelect: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'node_modules/bootstrap-select/js',
+                        src: ['*.js'],
+                        dest: 'src/js/lib/bootstrap-select/'
+
+                    }, {
+                        expand: true,
+                        cwd: 'node_modules/bootstrap-select/sass/',
+                        src: ['*.scss'],
+                        dest: 'src/scss/lib/bootstrap-select/',
+                        rename: function (dest, src) {
+                            return dest + src.replace(/\.css$/, ".scss");
+                        }
+                    }
+                ]
+            },
+            //Copy moment
+            moment: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'node_modules/moment/',
+                        src: ['moment.js'],
+                        dest: 'src/js/lib/moment/'
+
+                    }
+                ]
             }
         },
 
@@ -56,7 +88,6 @@ module.exports = function (grunt) {
                 },
                 files: {
                     'www/dist/css/style.css': 'src/scss/style.scss',
-                    'www/dist/css/style-index.css': 'src/scss/style-index.scss'
                 }
             }
 
@@ -97,7 +128,7 @@ module.exports = function (grunt) {
                     transform: [['babelify', {presets: ['es2015']}]],
                     debug: true
                 },
-                src: ['src/js/scripts.js'],
+                src: ['src/js/lib/bootstrap/bootstrap.bundle.js','src/js/scripts.js'],
                 dest: 'www/dist/js/scripts.js'
             }
         },
@@ -134,7 +165,7 @@ module.exports = function (grunt) {
                 },
                 options: {
                     watchTask: true,
-                    proxy: 'http://skeleton-b4.dev' //Have to be changed by each project name
+                    proxy: 'http://perfectClean.dev' //Have to be changed by each project name
                 }
 
 
